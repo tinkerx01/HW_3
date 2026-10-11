@@ -15,8 +15,18 @@ print("index print:", model_out[0, 0, 0])
 # pinned[0] = 999 
 # print(notes) -> [5, 999, 20, 25] my guess
 
+#to see output
 notes = np.array([5, 10, 15, 20, 25]) 
 pinned = notes[1:3] 
 pinned[0] = 999 
 print(notes)
+#using copy
+notes = np.array([5, 10, 15, 20, 25]) 
+pinned = notes[1:3].copy()
+pinned[0] = 999
+print(notes) 
+#example code
+view = notes[:]
+view += 22
+print(f"added 22 units to view, but notes is now: {notes}")
 
