@@ -1,0 +1,41 @@
+import numpy as np
+
+def searchByBib(b):
+    try:
+        print(f"results for runner {b}:", table[:, np.where(table[1] == b)[0][0]])
+    except IndexError:
+        print("out of bound.")
+
+
+bib_numbers = np.array([101, 102, 103, 104, 105, 106])
+times_5k = np.array([22.3, 25.1, 21.8, 26.4, 23.0, 24.7])
+
+bib_numbers_2 = np.array([107, 108]) 
+times_5k_2 = np.array([20.5, 27.9])
+
+bib = np.concatenate([bib_numbers, bib_numbers_2])
+time = np.concatenate([times_5k, times_5k_2])
+
+idx = np.random.permutation(len(bib))
+
+print( bib[idx], time[idx], sep = '\n')
+
+s_idx = np.argsort(time)
+table = np.vstack([[n for n in np.arange(1,len(bib)+1)],
+                   bib[s_idx], 
+                   time[s_idx]])
+print("\nRANKS TABLE:\n", table.T)
+# could be anyone
+# like this:
+# while true:
+# usr_inpt = input("Enter bib to search: ")
+# if not usr_inpt:
+# break
+# but we didn't want that so I didn't write it
+searchByBib(104)
+
+
+
+
+
+
