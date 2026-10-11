@@ -1,10 +1,10 @@
 import numpy as np
 
 def searchByBib(b):
-    try:
+    # try:
         print(f"results for runner {b}:", table[:, np.where(table[1] == b)[0][0]])
-    except IndexError:
-        print("out of bound.")
+    # except IndexError:
+    #     print("out of bound.")
 
 
 bib_numbers = np.array([101, 102, 103, 104, 105, 106])
