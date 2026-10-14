@@ -9,6 +9,6 @@ b = -2.0
 
 raw = X_messages @ w + b
 final_report = np.maximum(0, raw) #ReLU activation
-moods = np.where(final_report < 5, "energetic", "calm") #threshold = 5
+moods = np.where(final_report > 5, "energetic", "calm") #threshold = 5
 print(np.vstack([final_report, moods]).T)
 #second and 3rd messages are energetic

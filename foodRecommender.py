@@ -4,7 +4,7 @@ recipes = np.array([[15, 350, 2, 5],
                     [45, 600, 7, 10],
                     [10, 200, 0, 3],
                     [30, 450, 5, 7],
-                    [60, 800, 8, 12] ]) 
+                    [60, 800, 8, 12]]) 
 recipe_names = ["Salad", "Curry", "Toast", "Pasta", "Stew"]
 
 r_min = np.min(recipes, axis = 0)
@@ -33,5 +33,5 @@ print(recommends)
 print("="*50)
 #=========================================  
 recipe_names_arr = np.array(recipe_names) #np arr so it's easier to work with
-sorted_names = recipe_names_arr[np.argsort(dist, axis=0)].T 
+sorted_names = recipe_names_arr[np.argsort(dist, axis=0)].T
 print(np.column_stack((user_indx, sorted_names)))
