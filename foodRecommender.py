@@ -34,4 +34,4 @@ print("="*50)
 #=========================================  
 recipe_names_arr = np.array(recipe_names) #np arr so it's easier to work with
 sorted_names = recipe_names_arr[np.argsort(dist, axis=0)].T 
-print(np.column_stack((user_indx, sorted_names)))
+print(np.column_stack((user_indx, sorted_names[:,:3])))

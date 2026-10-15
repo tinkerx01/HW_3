@@ -9,7 +9,7 @@ gym_data = np.array([[28, 75, 175, 4],
 
 member_names = np.array(["Ali", "Sara", "Reza", "Neda", "Hassan", "Maryam"])
 #replace 0 with mean
-#session numbers cannot be float!
+#session numbers cannot be float! so we use round.
 clean_data = np.where(gym_data == 0, np.round(np.mean(gym_data, axis = 0)), gym_data)
 #take last 3 columns
 gym_data_selected = clean_data[:,-3:] 
@@ -22,5 +22,5 @@ print(member_names[np.argmax(fitness)], ":", np.max(fitness)) #Hassan
 
 sessions = gym_data_selected[:,2] #temp var for simplicity
 z_score = sessions - np.mean(sessions) / np.std(sessions) #for knowing which diff is bigger
-print(z_score)
-print(member_names[np.argmax(z_score)], np.round(np.max(z_score),4))
+dist = np.abs(z_score)
+print(member_names[np.argmax(dist)], f"with {gym_data_selected[np.argmax(dist), 2]} sessions", np.round(np.max(dist),4)) #Neda with 5 sessions
