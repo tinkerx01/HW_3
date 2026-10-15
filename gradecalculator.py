@@ -22,7 +22,7 @@ weight_matrix = np.vstack([scheme_A, scheme_B, scheme_C])
 final_scores = calculateFinal()
 methodPicker()
 
-new_weights = [0.25, 0.25, 0.5]
+new_weights = [0.25, 0.25, 0.5] #added new weight vector
 weight_matrix = np.vstack([weight_matrix, new_weights])
 
 final_scores = calculateFinal()

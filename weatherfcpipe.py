@@ -27,3 +27,5 @@ m = np.array([[1, 2],
 
 #trpose != flat
 #one makes a 1,n matrix while the other replaces columns with rows
+
+# np.expand_dims
