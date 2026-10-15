@@ -4,7 +4,7 @@ def calculateFinal():
     return scores @ weight_matrix.T
 
 def methodPicker():
-    print(np.mean(final_scores, axis = 0))
+    print(np.mean(final_scores, axis = 1))
     print("biggest mean is for method number:", np.argmax(np.mean(final_scores, axis = 0)))
 
 #quiz - midterm - final

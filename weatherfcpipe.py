@@ -14,7 +14,7 @@ print(weather_data.shape)
 day3 = np.random.randn(8, 4)
 weather_data = weather_data.reshape(-1,8,4)
 weather_data = np.vstack([weather_data, [day3]])
-print(weather_data.reshape(3,8,4).shape)
+print(weather_data.shape)
 
 m = np.array([[1, 2],
              [3, 4]])

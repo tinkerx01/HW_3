@@ -9,14 +9,18 @@ gym_data = np.array([[28, 75, 175, 4],
 
 member_names = np.array(["Ali", "Sara", "Reza", "Neda", "Hassan", "Maryam"])
 #replace 0 with mean
-clean_data = np.where(gym_data == 0, np.sum(gym_data, axis = 0)/5, gym_data)
+#session numbers cannot be float!
+clean_data = np.where(gym_data == 0, np.round(np.mean(gym_data, axis = 0)), gym_data)
 #take last 3 columns
 gym_data_selected = clean_data[:,-3:] 
 BMI = gym_data_selected[:,0] / (gym_data_selected[:,1]/100) **2
 #ضریب 1
-fitness = BMI + gym_data_selected[:,2] 
+fitness = BMI + gym_data_selected[:,2] #نمره امادگی جسمانی
+new_arr = np.column_stack((gym_data_selected, fitness))
+print(new_arr)
 print(member_names[np.argmax(fitness)], ":", np.max(fitness)) #Hassan
 
-distances = gym_data_selected[:,2] - np.std(gym_data_selected[:,2])
-print(distances)
-print(np.round(np.max(distances),4))
+sessions = gym_data_selected[:,2] #temp var for simplicity
+z_score = sessions - np.mean(sessions) / np.std(sessions) #for knowing which diff is bigger
+print(z_score)
+print(member_names[np.argmax(z_score)], np.round(np.max(z_score),4))
